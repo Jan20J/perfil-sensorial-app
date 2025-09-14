@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Sensorial Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Perfil Sensorial Interactivo</h1>
+            <p>Ingrese las calificaciones para cada ítem. Las preguntas marcadas con un asterisco (*) no se incluyen en el puntaje.</p>
+        </header>
+
+        <form id="sensory-form">
+            </form>
+
+        <div class="controls">
+            <button type="button" id="calculate-btn">📊 Calcular Puntuaciones</button>
+            <div class="loader" id="loader"></div>
+        </div>
+
+        <div id="results-section" class="hidden">
+            <h2>Resultados del Perfil</h2>
+            
+            <div class="sensory-section" id="section-resumen-cuadrantes">
+                <h3>Resumen de Cuadrantes</h3>
+                <div class="cuadrantes-grid">
+                    </div>
+            </div>
+
+            <div class="sensory-section" id="section-final-summary">
+                <h3>Resumen de Puntuaciones Finales</h3>
+                <table id="final-summary-table">
+                    </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

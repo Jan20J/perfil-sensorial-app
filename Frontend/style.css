@@ -1,0 +1,284 @@
+/* --- General Styling --- */
+:root {
+    --primary-color: #005f73;
+    --secondary-color: #0a9396;
+    --background-color: #f0f4f8;
+    --font-color: #333;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --border-radius: 12px;
+    --light-gray: #e0e0e0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+h3 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- Form Section Styling --- */
+.form-section {
+    background-color: var(--card-bg);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.question-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.question-table th, .question-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+    vertical-align: middle;
+}
+
+.question-table th {
+    font-weight: 600;
+}
+
+.question-item {
+    font-weight: 500;
+    font-size: 1.2em;
+    width: 10%;
+    text-align: center;
+}
+
+.excluded-item {
+    color: #999;
+}
+
+/* --- NUEVOS ESTILOS PARA EL SELECTOR DE CALIFICACIÓN --- */
+.rating-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50px;
+    border: 2px solid transparent; /* Para validación */
+}
+
+.rating-group.error {
+    border-color: #e53e3e; /* Borde rojo si no se ha contestado */
+}
+
+.rating-group.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.rating-group input[type="radio"] {
+    display: none; /* Ocultamos el botón de radio real */
+}
+
+.rating-group label {
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f4f8;
+    color: var(--font-color);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.rating-group label:hover {
+    transform: scale(1.1);
+    background-color: #e2e8f0;
+}
+
+/* Estilo para el botón SELECCIONADO */
+.rating-group input[type="radio"]:checked + span {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(10, 147, 150, 0.5);
+}
+
+/* Span dentro del label que estilizamos como botón */
+.rating-group label span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* --- Controls and Loader --- */
+.controls {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#calculate-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#calculate-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1.5s linear infinite;
+    display: none;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Results Section --- */
+.hidden {
+    display: none;
+}
+
+#results-section .sensory-section {
+    background: var(--card-bg);
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.cuadrantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.cuadrante-card {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.cuadrante-card table {
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.cuadrante-card tfoot td {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    background-color: #e9ecef;
+    text-align: right;
+    padding-right: 15px;
+}
+
+#final-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+#final-summary-table th, #final-summary-table td {
+    border: 1px solid #dee2e6;
+    padding: 14px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#final-summary-table th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+#final-summary-table td:first-child {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+#final-summary-table .final-score {
+    text-align: center;
+    font-weight: bold;
+}
+
+#final-summary-table .score-value {
+    color: var(--secondary-color);
+    font-size: 1.2em;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 5px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .question-table {
+        font-size: 0.9em;
+    }
+    .rating-group label {
+        width: 32px;
+        height: 32px;
+        font-size: 1em;
+    }
+}
