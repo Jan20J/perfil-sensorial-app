@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CONFIGURATION ---
     // IMPORTANT: Replace this with your actual Render backend URL after deployment
-    const BACKEND_URL = 'http://127.0.0.1:5000/calculate';
+    const BACKEND_URL = 'https://perfil-sensorial-api.onrender.com/calculate';
 
     const form = document.getElementById('sensory-form');
     const calculateBtn = document.getElementById('calculate-btn');
