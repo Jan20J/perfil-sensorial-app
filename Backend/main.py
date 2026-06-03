@@ -79,6 +79,11 @@ def calculate_scores():
         # Handle potential errors during calculation
         return jsonify({"error": "An error occurred during calculation.", "details": str(e)}), 500
 
+#Send endpoint to check if the backend is awake and responsive
+@app.route('/api/ping', methods=['GET'])
+def ping():
+    return jsonify({'status': 'awake'}), 200
+
 # Health check endpoint
 @app.route('/')
 def index():
